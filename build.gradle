@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+bootJar {
+    baseName = 'spring-songs'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test') {
+//        exclude group: 'junit', module: 'junit'    // This is part of migration to junit5
+    }
+
+//TODO: Blocked on getting Junit5 to work with Spring
+//    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+//    testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
+//    testCompile('org.junit.jupiter:junit-jupiter-params:5.2.0')
+}
+

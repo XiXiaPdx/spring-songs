@@ -1,4 +1,4 @@
-package spring.songs;
+package spring.songs.Model;
 
 public class Song {
 

@@ -4,20 +4,20 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-public class SongLoaderService {
+@Component
+public class SongDataLoader {
 
-  private final Logger logger = LoggerFactory.getLogger(SongLoaderService.class);
-  private final Set<Song> allSongs = new HashSet<>();
+  private final Logger logger = LoggerFactory.getLogger(SongDataLoader.class);
+  public static final List<Song> allSongs = new ArrayList<>();
 
   @PostConstruct
   private void loadSongs() {
